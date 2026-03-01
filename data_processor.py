@@ -48,7 +48,7 @@ class data_processor:
         x_test_data_0 = data_target_0.iloc[-10:].reset_index(drop=True)
         x_train_data_1 = data_target_1.iloc[:-10].reset_index(drop=True)
         x_test_data_1 = data_target_1.iloc[-10:].reset_index(drop=True)
-        
+
         self.data_train = pd.concat([x_train_data_0, x_train_data_1]).reset_index(drop=True)
         self.data_test = pd.concat([x_test_data_0, x_test_data_1]).reset_index(drop=True)
 
