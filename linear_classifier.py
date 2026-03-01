@@ -5,12 +5,10 @@ class linear_classifier:
     def __init__(self, learning_rate=0.01, epochs=5):
         self.learning_rate = learning_rate
         self.epochs = epochs
-        self.theta = []
-        self.bias = None
+        self.theta = [0.2,0.2,0.2,0.2]
+        self.bias = 0.2
 
-    def fit(self, data_train, theta = [0.2,0.2,0.2,0.2], bias = 0.2):
-        self.theta = np.array(theta)
-        self.bias = bias
+    def fit(self, data_train):
 
         x_train = data_train.drop(columns=['Species'])
         y_train = data_train['Species'].values
@@ -48,7 +46,6 @@ class linear_classifier:
         accuracy = 0
 
         for index, row in x_test.iterrows():
-            print(f"row: {row.values}")
             hypothesis = self.__hypothesis_function(row, theta, bias)
             sigmoid = self.__sigmoid(hypothesis)
 
@@ -58,7 +55,7 @@ class linear_classifier:
             check_column[index] = 1 if y_predicted[index] == y_test[index] else 0
 
         mse = np.mean(error)
-        accuracy = (np.sum(check_column) / x_test.shape[0]) * 100
+        accuracy = (np.sum(check_column) / x_test.shape[0])
         return mse, accuracy
 
 
