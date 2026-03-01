@@ -2,11 +2,10 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 class linear_classifier:
-    def __init__(self, learning_rate=0.01, epochs=5):
+    def __init__(self, learning_rate=0.01, theta =[0.2,0.2,0.2,0.2], bias = 0.2):
         self.learning_rate = learning_rate
-        self.epochs = epochs
-        self.theta = [0.2,0.2,0.2,0.2]
-        self.bias = 0.2
+        self.theta = theta
+        self.bias = bias
 
     def fit(self, data_train):
 

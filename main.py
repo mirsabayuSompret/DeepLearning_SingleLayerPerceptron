@@ -11,12 +11,19 @@ class main:
         data_processor.initialzie_data()
         data_train = data_processor.get_data_train()
         data_test = data_processor.get_data_test()
+        
+        #initial parameters for training the model
         epochs = 5
+        learning_rate = 0.1
+        initial_theta = [0.2, 0.2, 0.2, 0.2]
+        initial_bias = 0.2
+
         # 2d array to store mse and accuracy for training and testing data,
         # 0 for training data, 1 for testing data, and columns for each epoch
         mse_points = np.zeros((2, epochs))
         accuracy_points = np.zeros((2, epochs))
-        linear_classifier = lc.linear_classifier(0.1,1)
+
+        linear_classifier = lc.linear_classifier(learning_rate, initial_theta, initial_bias)
 
         for epoch in range(epochs):
             mse_train, accuracy_train = linear_classifier.fit(data_train)
@@ -29,9 +36,7 @@ class main:
         print(f"mse_points: {mse_points}")
         print(f"accuracy_points: {accuracy_points}")
 
-
-        
-
+        #create diagrams for mse and accuracy for training and testing data
         x = np.arange(1, epochs + 1)
 
         fig, axes = plt.subplots(1, 2, figsize=(12, 5))
