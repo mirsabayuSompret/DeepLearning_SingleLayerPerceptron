@@ -29,9 +29,11 @@ class linear_classifier:
             check_column[index] = 1 if y_predicted[index] == y_train[index] else 0
             self.theta = self.theta - self.learning_rate * delta_theta
             self.bias = self.bias - self.learning_rate * delta_bias
+            
 
         mse = np.mean(error)
         accuracy = (np.sum(check_column) / x_train.shape[0])
+
         return mse, accuracy
     
     def predict(self, data, theta, bias):
@@ -55,6 +57,9 @@ class linear_classifier:
 
         mse = np.mean(error)
         accuracy = (np.sum(check_column) / x_test.shape[0])
+
+        
+
         return mse, accuracy
 
 

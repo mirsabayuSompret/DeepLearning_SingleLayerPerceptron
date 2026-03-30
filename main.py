@@ -33,9 +33,6 @@ class main:
             accuracy_points[0][epoch] = accuracy_train
             accuracy_points[1][epoch] = accuracy_test
 
-        print(f"mse_points: {mse_points}")
-        print(f"accuracy_points: {accuracy_points}")
-
         #create diagrams for mse and accuracy for training and testing data
         x = np.arange(1, epochs + 1)
 
